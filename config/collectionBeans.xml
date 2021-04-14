@@ -1,0 +1,47 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="orderCollection" class="zkt.spring.depConf.OrderCollection">
+    	<!-- Properties配置 -->
+    	<property name="emailConfig">
+    		<props>
+    			<prop key="pop">pop.zkt.com</prop>
+    			<prop key="user">support@zkt.com</prop>
+    			<prop key="pswd">123456</prop>
+    		</props>
+    	</property>
+    	
+    	<!-- List配置 -->
+    	<property name="productNames">
+    		<list>
+    			<value>Alfa Romeo</value>
+    			<value>Bugatti Veyron</value>
+    			<value>Lamborghini</value>
+    			<!-- 外部对象用ref指向bean id，<ref bean="refBeanId" /> -->
+    		</list>
+    	</property>
+    	
+    	<!-- Map配置 -->
+    	<property name="purchaseList">
+    		<map>
+    			<entry key="SN-100001" value="1"></entry>
+    			<entry key="SN-100002" value="2"></entry>
+    			<entry key="SN-100003" value="3"></entry>
+    			<!-- 外部对象用value-ref指向bean id，<entry key="refKey" value-ref="refBeanId" /> -->
+    		</map>
+    	</property>
+    	
+    	<!-- Set配置 -->
+    	<property name="setOthers">
+    		<set>
+    			<value>车型</value>
+    			<value>内饰</value>
+    			<value>功耗</value>
+    			<!-- 外部对象用ref指向bean id，<ref bean="refBeanId" /> -->
+    		</set>
+    	</property>
+    </bean>
+    
+</beans> 

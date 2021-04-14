@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="notify" class="zkt.spring.start.NotifyServiceByCellPhoneImpl" />
+	<bean id="order" class="zkt.spring.start.Order">
+		<!-- <property name="customer">
+			<bean class="zkt.spring.start.Customer">
+				<property name="name" value="星新一" />
+				<property name="address" value="japan" />
+				<property name="age" value="71" />
+			</bean>
+		</property> -->
+		<property name="customer.name" value="星新一" /><!-- 复合属性 -->
+		<property name="customer.address" value="japan" />
+		
+		<property name="orderno" value="202008170001"></property>
+		<property name="notifyservice" ref="notify2"></property>
+
+		<!-- 配置注入NotifyServiceByCellPhoneImpl的实例化对象 -->
+		<!-- <property name="notifyservice">
+			<ref bean="notify" />
+		</property> -->
+		<!-- <property name="notifyservice" ref="notify" /> -->
+		<!-- <constructor-arg ref="notify" /> -->
+	</bean>
+	
+	<!-- 工厂非静态方法 -->
+	<!-- <bean id="notifyfactory" class="zkt.spring.start.NotifyFactory" />
+	<bean id="notify2" factory-bean="notifyfactory" factory-method="getNotifyService2" />
+	-->
+	
+	<!-- 工厂静态方法 -->
+	<bean id="notify2" class="zkt.spring.start.NotifyFactory" factory-method="getNotifyService" />
+</beans>
