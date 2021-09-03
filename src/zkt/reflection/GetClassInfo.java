@@ -1,5 +1,12 @@
 package zkt.reflection;
 
+/**
+ * @ClassName: GetClassInfo
+ * @Description: https://www.liaoxuefeng.com/wiki/1252599548343744/1264799402020448
+ * @author: zkt
+ * @date: 2021年8月17日下午3:51:57
+ *
+ */
 public class GetClassInfo {
 
 	public static void main(String[] args) throws ClassNotFoundException {

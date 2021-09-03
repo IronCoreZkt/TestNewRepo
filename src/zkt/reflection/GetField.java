@@ -12,11 +12,11 @@ public class GetField {
 		System.out.println(stdClass.getField("name"));
 		System.out.println(stdClass.getField("grade"));
 		System.out.println(stdClass.getDeclaredField("score"));
-		
+
 		Field f = String.class.getDeclaredField("value");
-		f.getName();
-		f.getType();
-		int m = f.getModifiers();
+		f.getName();//value
+		System.out.println(f.getType());//class [C
+		int m = f.getModifiers();//18
 		System.out.println(Modifier.isAbstract(m));//false
 		System.out.println(Modifier.isFinal(m));//true
 		System.out.println(Modifier.isPrivate(m));//true
@@ -26,7 +26,7 @@ public class GetField {
 		
 		Student p = new Student();
 		p.setScore(99);
-		Class c = p.getClass();
+		Class<?> c = p.getClass();
 		Field f1 = c.getDeclaredField("score");
 		f1.setAccessible(true);
 		System.out.println(f1.get(p));
@@ -51,5 +51,18 @@ public class GetField {
 
 
 class Person {
+	private int spiritLevel;
 	public String name;
+	/**
+	 * @return the spiritLevel
+	 */
+	public int getspiritLevel() {
+		return spiritLevel;
+	}
+	/**
+	 * @param spiritLevel the spiritLevel to set
+	 */
+	public void setspiritLevel(int spiritLevel) {
+		this.spiritLevel = spiritLevel;
+	}
 }
