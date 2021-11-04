@@ -14,6 +14,7 @@ public class GetMethod {
 			Method setGrade = stdClass.getDeclaredMethod("setGrade", int.class);
 			System.out.println(setGrade);
 			sm.getGrade();
+			// 获得private访问权限
 			setGrade.setAccessible(true);
 			setGrade.invoke(sm, 6);
 			sm.getGrade();
@@ -21,9 +22,11 @@ public class GetMethod {
 			String s = "reflect the world";
 			Method substring = String.class.getMethod("substring", int.class);
 			System.out.println(substring.invoke(s, 8));
+			// 静态方法反射调用
 			Method parseInt = Integer.class.getMethod("parseInt", String.class);
 			System.out.println(parseInt.invoke(null, "123456"));
 			
+			// 通过反射调用方法时，仍然遵守多态原则
 			Method polymorphicIndication = PersonMthd.class.getMethod("greetings");
 			polymorphicIndication.invoke(sm);
 		} catch (NoSuchMethodException e) {
